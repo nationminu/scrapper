@@ -1,0 +1,39 @@
+---
+version: "3.8"
+services:
+#--------------------------------------------------------------------------#
+#--------------------------------------------------------------------------#
+#                     C O D E I G N I T E R  v4.0.4                        #
+#--------------------------------------------------------------------------#
+#--------------------------------------------------------------------------#    
+    crawler:
+        image: "openjdk:11"
+        ports:
+            - "8080:8080"
+        environment:
+            TZ: "Asia/Seoul"
+            MYSQL_HOST: database:3306
+            MYSQL_DATABASE: crawler
+            MYSQL_USER: crawler
+            MYSQL_PASSWORD: crawler
+        volumes:
+            - ./target:/app
+        command: bash -c "java -jar /app/*.jar"
+#--------------------------------------------------------------------------#
+#--------------------------------------------------------------------------#
+#                         M A R I A D B  v10.5                             #
+#--------------------------------------------------------------------------#
+#--------------------------------------------------------------------------#   
+    database:
+        image: mariadb:10.5
+        ports:
+            - "3306:3306"
+        environment: 
+            TZ: "Asia/Seoul"
+            MYSQL_ROOT_PASSWORD: password
+            MYSQL_DATABASE: crawler
+            MYSQL_USER: crawler
+            MYSQL_PASSWORD: crawler   
+        volumes:
+            - ./database/data:/var/lib/mysql:rw 
+            - ./src/main/resources/database:/docker-entrypoint-initdb.d:rw  
