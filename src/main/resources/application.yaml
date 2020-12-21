@@ -35,7 +35,7 @@ springdoc.swagger-ui.path: /swagger.html
 springdoc.swagger-ui.operationsSorter: method
 
 elasticsearch.host: 127.0.0.1
-elasticsearch.port: 9200
+elasticsearch.port: 9300
 elasticsearch.cluster_name: docker-cluster
 spring.main.allow-bean-definition-overriding: true
 --- 

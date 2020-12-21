@@ -7,5 +7,7 @@ import org.springframework.data.repository.Repository;
 import com.souljam.crawler.domain.CrawlerVO; 
  
 public interface CrawlerRepository extends Repository<CrawlerVO, Integer> {
-    List<CrawlerVO> findByDate(String date); 
+    List<CrawlerVO> findByDate(String date);
+
+	void save(CrawlerVO cv); 
 }

@@ -158,7 +158,7 @@ public class WebCrawler {
 					log.debug("{}. Gathering URL of HTML Document: {} , {}", record, title, link);
 				}
 
-				log.debug("Parsing finished total {} : {} , {}", record, site.getId(), site_url);
+				log.info("Parsing finished total {} : {} , {}", record, site.getId(), site_url);
 			}
 			// save cache data
 			// domainRepository.saveAll(domains);

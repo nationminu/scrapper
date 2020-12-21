@@ -42,17 +42,35 @@ public class WebScrapper {
 			String site_url = d.getHref();
 			CrawlerVO cv  = new CrawlerVO();
 			try {
+				
 				doc = Jsoup.connect(site_url).timeout(50000).get();
-				Element title = doc.selectFirst("title");
-				Element description = doc.selectFirst("meta[property=og:description]");
-				Element published_time = doc.selectFirst("meta[property=article:published_time]"); 
 				
-				cv.setTitle(title.attr("text").toString());
-				cv.setContent(description.attr("content").toString());
+				String title = null;
+				Element description = null;
+				Element published_time = null;
+				Element link = null;
+				Elements content = null;
+				StringBuffer sb = new StringBuffer();
+
+				if (site_url.startsWith("https://www.autodaily.co.kr")){
+					title = doc.title(); // doc.selectFirst("meta[name=title]"); 
+					link = doc.selectFirst("meta[property=og:url]"); 
+					published_time = doc.selectFirst("meta[property=article:published_time]"); 
+					description = doc.selectFirst("meta[property=og:description]");
+					content = doc.select("div[id=article-view-content-div] > p"); 
+					log.info(content.text()); 
+				}
+				
+				
+				cv.setTitle(title);
+				cv.setLink(link.attr("content").toString());
+				cv.setDescription(description.attr("content").toString());
 				cv.setDate(published_time.attr("content").toString());
+				cv.setContent(content.text()); 
 				
+				log.info(cv.toString());
 				
-				
+				crawlerRepository.save(cv);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
