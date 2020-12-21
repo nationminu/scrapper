@@ -4,14 +4,16 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List; 
 
-import org.springframework.beans.factory.annotation.Autowired; 
- 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.souljam.crawler.domain.SiteVO;
 import com.souljam.crawler.repository.SiteRepository;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
+@Service
 public class TestCrawler {
 
 	@Autowired
