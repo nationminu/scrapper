@@ -36,4 +36,19 @@ services:
             MYSQL_PASSWORD: crawler   
         volumes:
             - ./database/data:/var/lib/mysql:rw 
-            - ./src/main/resources/database:/docker-entrypoint-initdb.d:rw  
+            - ./src/main/resources/database:/docker-entrypoint-initdb.d:rw
+
+    elasticsearch:
+        image: elasticsearch:7.10.1
+        ports:
+            - "9200:9200"
+            - "9300:9300"
+        environment: 
+            TZ: "Asia/Seoul"
+            discovery.type: single-node 
+        volumes:
+            - ./database/esdata:/usr/share/elasticsearch/data:rw
+        ulimits:
+            memlock:
+                soft: -1
+                hard: -1
