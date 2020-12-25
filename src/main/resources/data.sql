@@ -11,4 +11,3 @@ insert into sites values(UUID(),'medium','https://medium.com/nextmobility');
 insert into sites values(UUID(),'medium','https://medium.com/mobility-insights');
 insert into sites values(UUID(),'joins','http://jmagazine.joins.com/economist/list/021301');
 insert into sites values(UUID(),'newatlas','https://newatlas.com/transport/');
-

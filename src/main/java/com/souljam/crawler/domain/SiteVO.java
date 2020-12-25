@@ -21,10 +21,10 @@ public class SiteVO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(generator = "uuid2")
-	@GenericGenerator(name = "uuid2", strategy = "uuid2")
-	@Column(name = "id", updatable = false, nullable = false, columnDefinition = "BINARY(16)")
-	private UUID id;
+//	@GeneratedValue(generator = "uuid2")
+//	@GenericGenerator(name = "uuid2", strategy = "uuid2")
+//	@Column(name = "id", updatable = false, nullable = false, columnDefinition = "BINARY(16)")
+	private String id;
 	private String title;
 	private String url;
 }

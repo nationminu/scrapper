@@ -93,10 +93,8 @@ public class WebCrawler {
 					DomainVO domain = new DomainVO();
 
 					String link = element.attr("href").toString();
-					String title = element.text().toLowerCase();
-					String cls = element.attr("class").toString();
-					String style = element.attr("style").toString();
-
+					String title = element.text().toLowerCase(); 
+					
 					if (link.startsWith("/") || link.startsWith("?")) {
 						link = getDomainName(site_url) + link;
 					}

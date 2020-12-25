@@ -36,6 +36,8 @@ logging.level.com.souljam.crawler: INFO
 springdoc.swagger-ui.path: /swagger.html
 springdoc.swagger-ui.operationsSorter: method
 
+schedluer.job.cron: 0 */1 * * * ?
+
 elasticsearch.host: 127.0.0.1
 elasticsearch.port: 9300
 elasticsearch.cluster_name: docker-cluster
@@ -62,7 +64,7 @@ logging.level.com.rock.jpetstore: ERROR
 springdoc.swagger-ui.path: /swagger.html
 springdoc.swagger-ui.operationsSorter: method
 
-schedluer.job.cron: 0 */1 * * * ?
+schedluer.job.cron: 0 * * * * ?
 
 elasticsearch.host: elasticsearch
 elasticsearch.port: 9300
