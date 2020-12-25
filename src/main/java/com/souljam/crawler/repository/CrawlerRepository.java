@@ -10,4 +10,5 @@ public interface CrawlerRepository extends Repository<CrawlerVO, Integer> {
     List<CrawlerVO> findByDate(String date);
 
 	void save(CrawlerVO cv); 
+	void save(List<CrawlerVO> crawler); 
 }

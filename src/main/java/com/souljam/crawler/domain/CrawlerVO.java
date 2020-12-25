@@ -24,16 +24,16 @@ public class CrawlerVO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private String id;
-	@Field(type = FieldType.Text)
+	private Id id;
+	//@Field(type = FieldType.Text)
 	private String title;
-	@Field(type = FieldType.Text)
+	//@Field(type = FieldType.Text)
 	private String description;
-	@Field(type = FieldType.Date)
+	//@Field(type = FieldType.Date)
 	private String date;
-	@Field(type = FieldType.Text)
+	//@Field(type = FieldType.Text)
 	private String content;
-	@Field(type = FieldType.Text)
+	//@Field(type = FieldType.Text)
 	private String link;
 
 }

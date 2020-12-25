@@ -125,12 +125,20 @@ public class WebCrawler {
 								|| link.equals("https://medium.com/mobility-insights/"))
 							continue;
 						// Exclude Link
-						if (link.equals("https://medium.com/nextmobility/about")
+						if (link.startsWith("https://medium.com/nextmobility/tagged")
+								|| link.equals("https://medium.com/nextmobility/about")
 								|| link.equals("https://medium.com/nextmobility/latest")
 								|| link.equals("https://medium.com/nextmobility/archive")
 								|| link.equals("https://medium.com/nextmobility/settings#aurora-beta"))
 							continue;
 
+						if (link.startsWith("https://medium.com/mobility-insights/tagged")
+								|| link.equals("https://medium.com/mobility-insights/about")
+								|| link.equals("https://medium.com/mobility-insights/latest")
+								|| link.equals("https://medium.com/mobility-insights/archive")
+								|| link.equals("https://medium.com/mobility-insights/settings#aurora-beta"))
+							continue;
+						
 					} else if (site_url.startsWith("http://jmagazine.joins.com/")
 							&& link.matches("http://jmagazine.joins.com/economist/view/(.*)")) {
 

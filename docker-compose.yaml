@@ -46,8 +46,8 @@ services:
         environment: 
             TZ: "Asia/Seoul"
             discovery.type: single-node 
-        volumes:
-            - ./database/esdata:/usr/share/elasticsearch/data:rw
+#        volumes:
+#            - ./database/esdata:/usr/share/elasticsearch/data:rw
         ulimits:
             memlock:
                 soft: -1
