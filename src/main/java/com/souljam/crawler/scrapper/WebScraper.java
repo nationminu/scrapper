@@ -13,31 +13,31 @@ import org.jsoup.nodes.Document;
 import org.springframework.stereotype.Component;
 
 import com.souljam.crawler.domain.CrawlerVO;
-import com.souljam.crawler.domain.DomainVO;
+import com.souljam.crawler.domain.UrlVO;
 import com.souljam.crawler.repository.CrawlerRepository;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component
-public class WebScrapper {
+public class WebScraper {
 
 	private CrawlerRepository crawlerRepository;
 //	private SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
 	private SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX");
 
-	public WebScrapper(CrawlerRepository crawlerRepository) {
+	public WebScraper(CrawlerRepository crawlerRepository) {
 		this.crawlerRepository = crawlerRepository;
 	}
 
-	public void save(List<DomainVO> domains) throws IOException { 
+	public void save(List<UrlVO> domains) throws IOException { 
 		dateformat.setTimeZone(TimeZone.getTimeZone("Asia/Seoul")); 
 		Date today = Calendar.getInstance().getTime();
 		List<CrawlerVO> crawler = new ArrayList<CrawlerVO>();
 		Document doc;
 
 		int record = 0;
-		for (DomainVO d : domains) {
+		for (UrlVO d : domains) {
 
 			String site_url = d.getHref();
 			CrawlerVO cv = new CrawlerVO();

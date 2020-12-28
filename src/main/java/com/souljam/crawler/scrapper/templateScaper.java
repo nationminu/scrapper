@@ -17,7 +17,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.stereotype.Component;
 
-import com.souljam.crawler.domain.DomainVO;
+import com.souljam.crawler.domain.UrlVO;
 import com.souljam.crawler.domain.SiteVO;
 import com.souljam.crawler.repository.SiteRepository;
 
@@ -25,21 +25,21 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component
-public class WebCrawler {
+public class templateScaper {
 
 //	@Autowired  
 	private SiteRepository siteRepository;
 
-	public WebCrawler(SiteRepository siteRepository) {
+	public templateScaper(SiteRepository siteRepository) {
 		// TODO Auto-generated constructor stub
 		this.siteRepository = siteRepository;
 	}
 
-	public List<DomainVO> scrap() throws Exception {
-		List<DomainVO> distinctElements = null;
+	public List<UrlVO> generate() throws Exception {
+		List<UrlVO> distinctElements = null;
 		try {
 			List<SiteVO> sites = get_site();
-			List<DomainVO> domains = get_domains(sites);
+			List<UrlVO> domains = get_domains(sites);
 
 			distinctElements = domains.stream().filter(distinctByKey(p -> p.getHref())).collect(Collectors.toList());
 
@@ -71,10 +71,10 @@ public class WebCrawler {
 		return sites;
 	}
 
-	public List<DomainVO> get_domains(List<SiteVO> sites) {
+	public List<UrlVO> get_domains(List<SiteVO> sites) {
 
 		Date date = new Date();
-		List<DomainVO> domains = new ArrayList<DomainVO>();
+		List<UrlVO> domains = new ArrayList<UrlVO>();
 		Document doc;
 
 		try {
@@ -90,7 +90,7 @@ public class WebCrawler {
 				Elements elements = doc.select("a[href]");
 				int record = 0;
 				for (Element element : elements) {
-					DomainVO domain = new DomainVO();
+					UrlVO domain = new UrlVO();
 
 					String link = element.attr("href").toString();
 					String title = element.text().toLowerCase(); 

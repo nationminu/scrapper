@@ -26,7 +26,7 @@ import java.util.UUID;
 
 @Slf4j
 @RestController
-public class HomeController {
+public class CrawlerController {
 
 	@Value("${spring.application.name}")
 	private String appName;

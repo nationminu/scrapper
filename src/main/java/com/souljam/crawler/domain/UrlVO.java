@@ -16,8 +16,8 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "domains")
-public class DomainVO implements Serializable {
+@Table(name = "urls")
+public class UrlVO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 

@@ -11,7 +11,7 @@ set names utf8;
 --  PRIMARY KEY (`id`)
 --) ENGINE=InnoDB CHARSET=utf8;
 
---CREATE TABLE `domains` (
+--CREATE TABLE `urls` (
 --  `id` varchar(36) NOT NULL,
 --  `domain_id` binary(16) DEFAULT NULL,
 --  `datetime` datetime DEFAULT NULL,
